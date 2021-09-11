@@ -91,10 +91,6 @@ public class MovieDTO implements Serializable {
 		return generes;
 	}
 
-	public void setGeneres(Set<GenreDTO> generes) {
-		this.generes = generes;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
