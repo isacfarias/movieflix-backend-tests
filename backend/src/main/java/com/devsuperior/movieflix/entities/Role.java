@@ -9,25 +9,21 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="genre")
-public class Genre implements Serializable {
+@Table(name= "role")
+public class Role implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	private String authority;
 	
-	private String name;
-	
-	public Genre() {
-		super();
-	}
+	public Role() {}
 
-	public Genre(Long id, String name) {
-		super();
+	public Role(Long id, String authority) {
 		this.id = id;
-		this.name = name;
+		this.authority = authority;
 	}
 
 	public Long getId() {
@@ -38,12 +34,12 @@ public class Genre implements Serializable {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getAuthority() {
+		return authority;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setAuthority(String authority) {
+		this.authority = authority;
 	}
 
 	@Override
@@ -51,7 +47,6 @@ public class Genre implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
 
@@ -63,24 +58,18 @@ public class Genre implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Genre other = (Genre) obj;
+		Role other = (Role) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
-			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Genre [id=" + id + ", name=" + name + "]";
+		return "Role [id=" + id + ", authority=" + authority + "]";
 	}
-	
-	
+
 }
