@@ -1,17 +1,11 @@
 package com.devsuperior.movieflix.entities;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -28,22 +22,18 @@ public class Movie implements Serializable {
 	private Integer year;
 	private String imgUrl;
 	private String synopsis;
-	
-	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "movie_genre", 
-		joinColumns = @JoinColumn(name = "movie_id"), 
-		inverseJoinColumns = @JoinColumn(name = "genre_id"))
-	private Set<Genre> generes = new HashSet<>();
+	private Genre genre;
 	
 	public Movie() {}
 
-	public Movie(Long id, String title, String subTitle, Integer year, String imgUrl, String synopsis) {
+	public Movie(Long id, String title, String subTitle, Integer year, String imgUrl, String synopsis, Genre genre) {
 		this.id = id;
 		this.title = title;
 		this.subTitle = subTitle;
 		this.year = year;
 		this.imgUrl = imgUrl;
 		this.synopsis = synopsis;
+		this.genre = genre;
 	}
 
 	public Long getId() {
@@ -94,8 +84,12 @@ public class Movie implements Serializable {
 		this.synopsis = synopsis;
 	}
 
-	public Set<Genre> getGeneres() {
-		return generes;
+	public Genre getGenre() {
+		return genre;
+	}
+
+	public void setGenre(Genre genre) {
+		this.genre = genre;
 	}
 
 	@Override
@@ -126,7 +120,7 @@ public class Movie implements Serializable {
 	@Override
 	public String toString() {
 		return "Movie [id=" + id + ", title=" + title + ", subTitle=" + subTitle + ", year=" + year + ", imgUrl="
-				+ imgUrl + ", synopsis=" + synopsis + ", generes=" + generes + "]";
+				+ imgUrl + ", synopsis=" + synopsis + ", genre=" + genre + "]";
 	}
 
 }
