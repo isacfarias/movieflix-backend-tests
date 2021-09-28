@@ -29,7 +29,6 @@ public class MovieResource {
 			@RequestParam(value = "direction", defaultValue = "ASC") String direction) {
 		
 		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
-		
 		Page<MovieDTO> movies = service.findAllPaged(genreId,
 				                                     pageRequest);
 		return ResponseEntity.ok(movies);

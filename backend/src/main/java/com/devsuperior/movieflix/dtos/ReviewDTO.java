@@ -13,7 +13,7 @@ public class ReviewDTO {
 	
 	@NotBlank(message = "A descrição da avaliação é obrigatória.")
 	private String text;
-	private Set<MovieDTO> movies = new HashSet<>();
+	private Long movieId;
 	private Set<UserDTO> users = new HashSet<>();
 	
 	public ReviewDTO() {}
@@ -26,7 +26,7 @@ public class ReviewDTO {
 	public ReviewDTO(Review review) {
 		this.id = review.getId();
 		this.text = review.getName();
-		review.getMovies().forEach(movie -> movies.add(new MovieDTO(movie)));
+		this.movieId = review.getMovie().getId();
 		review.getUsers().forEach(user -> users.add(new UserDTO(user)));
 	}
 
@@ -46,8 +46,12 @@ public class ReviewDTO {
 		this.text = text;
 	}
 
-	public Set<MovieDTO> getMovies() {
-		return movies;
+	public Long getMovieId() {
+		return movieId;
+	}
+
+	public void setMovieId(Long movieId) {
+		this.movieId = movieId;
 	}
 
 	public Set<UserDTO> getUsers() {
@@ -81,7 +85,7 @@ public class ReviewDTO {
 
 	@Override
 	public String toString() {
-		return "ReviewDTO [id=" + id + ", name=" + text + ", movies=" + movies + ", users=" + users + "]";
+		return "ReviewDTO [id=" + id + ", name=" + text + ", movieId=" + movieId + ", users=" + users + "]";
 	}
 
 }

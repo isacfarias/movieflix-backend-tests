@@ -26,26 +26,20 @@ public class Review implements Serializable {
 	private String name;
 	
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "review_movie", 
-		joinColumns = @JoinColumn(name = "review_id"), 
-		inverseJoinColumns = @JoinColumn(name = "movie_id"))
-	private Set<Movie> movies = new HashSet<>();
+    @JoinColumn(name = "movie_id")
+	private Movie movie;
 
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "review_user", 
-		joinColumns = @JoinColumn(name = "review_id"), 
-		inverseJoinColumns = @JoinColumn(name = "user_id"))
-	private Set<User> users = new HashSet<>();
+	@JoinColumn(name = "user_id")
+	private User user;
 	
-	public Review() {
-	}
+	public Review() {}
 
-	public Review(Long id, String name, Set<Movie> movies, Set<User> users) {
-		super();
+	public Review(Long id, String name, Movie movie, User user) {
 		this.id = id;
 		this.name = name;
-		this.movies = movies;
-		this.users = users;
+		this.movie = movie;
+		this.user = user;
 	}
 
 	public Long getId() {
@@ -64,12 +58,20 @@ public class Review implements Serializable {
 		this.name = name;
 	}
 
-	public Set<Movie> getMovies() {
-		return movies;
+	public Movie getMovie() {
+		return movie;
 	}
 
-	public Set<User> getUsers() {
-		return users;
+	public void setMovie(Movie movie) {
+		this.movie = movie;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	@Override
@@ -99,7 +101,7 @@ public class Review implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Review [id=" + id + ", name=" + name + ", movies=" + movies + ", users=" + users + "]";
+		return "Review [id=" + id + ", name=" + name + ", movies=" + movie + ", user=" + user + "]";
 	}
 	
 }

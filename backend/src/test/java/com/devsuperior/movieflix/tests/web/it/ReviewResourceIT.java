@@ -21,7 +21,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 
-import com.devsuperior.movieflix.dto.ReviewDTO;
+import com.devsuperior.movieflix.dtos.ReviewDTO;
 import com.devsuperior.movieflix.repositories.ReviewRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -65,7 +65,7 @@ public class ReviewResourceIT {
 	}
 
 	@Test
-	public void insertShouldReturnUnauthorizedWhenNotValidToken() throws Exception {
+	void insertShouldReturnUnauthorizedWhenNotValidToken() throws Exception {
 
 		String jsonBody = objectMapper.writeValueAsString(newReviewDTO);
 		
@@ -79,7 +79,7 @@ public class ReviewResourceIT {
 	}
 	
 	@Test
-	public void insertShouldReturnForbiddenWhenVisitorAuthenticated() throws Exception {
+	void insertShouldReturnForbiddenWhenVisitorAuthenticated() throws Exception {
 	
 		String accessToken = obtainAccessToken(visitorUsername, visitorPassword);
 		
@@ -96,7 +96,7 @@ public class ReviewResourceIT {
 	}
 	
 	@Test
-	public void insertShouldInsertReviewWhenMemberAuthenticatedAndValidData() throws Exception {
+	void insertShouldInsertReviewWhenMemberAuthenticatedAndValidData() throws Exception {
 		
 		String accessToken = obtainAccessToken(memberUsername, memberPassword);
 		
@@ -120,7 +120,7 @@ public class ReviewResourceIT {
 	}
 
 	@Test
-	public void insertShouldReturnUnproccessableEntityWhenMemberAuthenticatedAndInvalidData() throws Exception {
+	void insertShouldReturnUnproccessableEntityWhenMemberAuthenticatedAndInvalidData() throws Exception {
 		
 		String accessToken = obtainAccessToken(memberUsername, memberPassword);
 		
