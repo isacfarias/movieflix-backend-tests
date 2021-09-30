@@ -5,10 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.devsuperior.movieflix.dtos.MovieDTO;
 import com.devsuperior.movieflix.services.MovieService;
@@ -29,9 +26,13 @@ public class MovieResource {
 			@RequestParam(value = "direction", defaultValue = "ASC") String direction) {
 		
 		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
-		Page<MovieDTO> movies = service.findAllPaged(genreId,
-				                                     pageRequest);
+		Page<MovieDTO> movies = service.findAllPaged(genreId, pageRequest);
 		return ResponseEntity.ok(movies);
+	}
+
+	@GetMapping("/{id}")
+	public ResponseEntity<MovieDTO> findById(@PathVariable Long id) {
+		return ResponseEntity.ok(service.findById(id));
 	}
 
 }

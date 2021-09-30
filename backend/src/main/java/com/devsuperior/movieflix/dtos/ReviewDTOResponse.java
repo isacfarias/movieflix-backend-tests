@@ -4,20 +4,22 @@ import com.devsuperior.movieflix.entities.Review;
 
 import javax.validation.constraints.NotBlank;
 
-public class ReviewDTO {
-
+public class ReviewDTOResponse {
+	
 	private Long id;
-
+	
 	@NotBlank(message = "A descrição da avaliação é obrigatória.")
 	private String text;
-	private Long movieId;
+	private MovieDTO movie;
+	private String userName;
 
-	public ReviewDTO() {}
+	public ReviewDTOResponse() {}
 
-	public ReviewDTO(Review review) {
+	public ReviewDTOResponse(Review review) {
 		this.id = review.getId();
 		this.text = review.getName();
-		this.movieId = review.getMovie().getId();
+		this.movie = new MovieDTO(review.getMovie());
+		this.userName = review.getUser().getUsername();
 	}
 
 	public Long getId() {
@@ -36,12 +38,12 @@ public class ReviewDTO {
 		this.text = text;
 	}
 
-	public Long getMovieId() {
-		return movieId;
+	public MovieDTO getMovie() {
+		return movie;
 	}
 
-	public void setMovieId(Long movieId) {
-		this.movieId = movieId;
+	public void setMovie(MovieDTO movie) {
+		this.movie = movie;
 	}
 
 	@Override
@@ -60,7 +62,7 @@ public class ReviewDTO {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		ReviewDTO other = (ReviewDTO) obj;
+		ReviewDTOResponse other = (ReviewDTOResponse) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -71,7 +73,7 @@ public class ReviewDTO {
 
 	@Override
 	public String toString() {
-		return "ReviewDTO [id=" + id + ", name=" + text + ", movieId=" + movieId +"]";
+		return "ReviewDTO [id=" + id + ", name=" + text + ", movie=" + movie + ", userName=" + userName + "]";
 	}
 
 }

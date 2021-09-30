@@ -1,0 +1,29 @@
+INSERT INTO user (name, email, password) VALUES ('Bob', 'bob@gmail.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG');
+INSERT INTO user (name, email, password) VALUES ('Ana', 'ana@gmail.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG');
+
+INSERT INTO role (authority) VALUES ('ROLE_VISITOR');
+INSERT INTO role (authority) VALUES ('ROLE_MEMBER');
+
+INSERT INTO user_role (user_id, role_id) VALUES (1, 1);
+INSERT INTO user_role (user_id, role_id) VALUES (2, 2);
+
+INSERT INTO genre (name) VALUES ('Ação');
+INSERT INTO genre (name) VALUES ('Aventura');
+INSERT INTO genre (name) VALUES ('Biográfico');
+INSERT INTO genre (name) VALUES ('Comédia');
+INSERT INTO genre (name) VALUES ('Histórico');
+INSERT INTO genre (name) VALUES ('Drama');
+INSERT INTO genre (name) VALUES ('Fantasia');
+INSERT INTO genre (name) VALUES ('Ficção científica');
+
+INSERT INTO movie (title, sub_title, genre_id, year, img_url, synopsis) VALUES ('Tripla Ameaça','Triple Threat', 1, 2019, 'https://www.themoviedb.org/t/p/w533_and_h300_bestv2/AukoTjDSvjB4g0YTDxRNVwS4uFR.jpg','A filha de um bilionário torna-se o alvo de um perigoso e eficiente cartel criminoso. O que eles não contavam, é que sua proteção passaria a ser três implacáveis mercenários - dois lutadores passando por dificuldades e um terceiro que jurou vingança contra os outros - lutando com unhas e dentes para impedir que os assassinos alcancem seu alvo.');
+INSERT INTO movie (title, sub_title, genre_id, year, img_url, synopsis) VALUES ('Justiça em Família','Sweet Girl', 1, 2021, 'https://www.themoviedb.org/t/p/w533_and_h300_bestv2/bOJZC4ToKWaDyypUOGTLbgT0MeO.jpg','Ele perdeu o amor de sua vida por causa da ganância da indústria farmacêutica. Agora, sua filha está órfã e a justiça não chega. Por enquanto.');
+INSERT INTO movie (title, sub_title, genre_id, year, img_url, synopsis) VALUES ('Jungle Cruise','Amazon River', 2, 2021, 'https://www.themoviedb.org/t/p/w533_and_h300_bestv2/97wADgosBO2o2N22w6vBe1K3RwP.jpg','O destemido capitão Frank Wolff e a intrépida pesquisadora Lily Houghton se aventuram pela Amazônia a bordo da peculiar embarcação La Quila. Determinados a encontrar uma árvore cujos poderes de cura podem mudar o futuro da medicina, nem mesmo as águas perigosas e as forças sobrenaturais que enfrentam pelo caminho poderão detê-los. Mas os riscos aumentam ainda mais conforme os segredos da árvore se revelam, o destino de Lily e Frank e também de toda a humanidade está em jogo.');
+INSERT INTO movie (title, sub_title, genre_id, year, img_url, synopsis) VALUES ('Viúva Negra','Black Widow', 2, 2021, 'https://www.themoviedb.org/t/p/w533_and_h300_bestv2/3gGVzZGLs83Bh1Hjelxjn6EObMS.jpg','Natasha Romanoff, também conhecida como Viúva Negra, confronta o lado mais sombrio de sua história quando surge uma perigosa conspiração ligada ao seu passado. Perseguida por uma força implacável disposta a tudo para destruí-la, Natasha precisa agora lidar com seu passado como espiã e com as relações que deixou para trás muito antes de se tornar uma Vingadora.');
+INSERT INTO movie (title, sub_title, genre_id, year, img_url, synopsis) VALUES ('The Exorcism of Carmen Farias','El exorcismo de Carmen Farías', 3, 2021, 'https://www.themoviedb.org/t/p/w533_and_h300_bestv2/3sy63POBUZQyaefWUbpRyci11Tz.jpg','Carmen, a brave journalist, discovers soon after her mother''''s death that she has inherited her grandma''''s house. She decides to move there without knowing it hides dark secrets.');
+INSERT INTO movie (title, sub_title, genre_id, year, img_url, synopsis) VALUES ('Amizade de Férias','Vacation Friends', 4, 2021, 'https://www.themoviedb.org/t/p/w533_and_h300_bestv2/o0UGl6icA4DbhmDNgdZ5AWvuTtM.jpg','Os corretos Marcus e Emily fazem amizade com os caçadores de aventuras Ron e Kyla em um resort no México. Vivendo o momento, Marcus e Emily curtem uma semana de louca diversão e devassidão com essa nova "amizade de férias". Meses após a temporada de subversão, Marcus e Emily ficam apavorados quando Ron e Kyla aparecem, sem terem sido convidados, em seu casamento.');
+INSERT INTO movie (title, sub_title, genre_id, year, img_url, synopsis) VALUES ('O Espião Inglês ','The Courier', 5, 2021, 'https://www.themoviedb.org/t/p/w533_and_h300_bestv2/lUwd90YMdzRZCGsiXyMZhXIlvV9.jpg','Durante a Guerra Fria, diversos civis atuaram como espiões para impedir o avanço soviético no mundo. Greville Wynne, um engenheiro elétrico britânico, foi um desses homens recrutados pelo Serviço de Inteligência Militar Britânico, O MI5. Através de informações cruciais obtidas por uma de suas fontes, Wynne conseguiu determinar o fim da Crise dos Mísseis de Cuba, em 1962.');
+INSERT INTO movie (title, sub_title, genre_id, year, img_url, synopsis) VALUES ('Awake','Hallucinations', 6, 2021, 'https://www.themoviedb.org/t/p/w533_and_h300_bestv2/3RMbkXS4ocMmoJyAD3ZsWbm32Kx.jpg','O caos se instala no planeta depois que um acontecimento global neutraliza todos os equipamentos eletrônicos e acaba com a capacidade humana de dormir. Mas Jill (Gina Rodriguez), uma ex-militar com um passado problemático, pode ter a chave para a cura: sua própria filha.');
+INSERT INTO movie (title, sub_title, genre_id, year, img_url, synopsis) VALUES ('Dragon Fury','Dragon', 7, 2021, 'https://www.themoviedb.org/t/p/w533_and_h300_bestv2/tQpNgshSijrJ7TaY0P8JBWo7KJG.jpg','Uma equipe de especialistas viaja profundamente nas montanhas para encontrar uma criatura perigosa.');
+INSERT INTO movie (title, sub_title, genre_id, year, img_url, synopsis) VALUES ('Invasão Cósmica','Cosmic Sin', 8, 2021, 'https://www.themoviedb.org/t/p/w533_and_h300_bestv2/8T7z6eCcYFtNLtGdn8QdaJaFcnz.jpg','Sete soldados desonestos lançam um ataque preventivo contra uma civilização alienígena recém-descoberta na esperança de acabar com uma guerra interestelar antes de começar.');
+

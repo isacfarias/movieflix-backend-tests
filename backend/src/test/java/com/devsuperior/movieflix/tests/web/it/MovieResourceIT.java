@@ -23,7 +23,7 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 
 import com.devsuperior.movieflix.dtos.MovieDTO;
-import com.devsuperior.movieflix.dtos.ReviewDTO;
+import com.devsuperior.movieflix.dtos.ReviewDTOResponse;
 import com.devsuperior.movieflix.repositories.MovieRepository;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -193,10 +193,10 @@ public class MovieResourceIT {
 		return objectMapper.convertValue(node, MovieDTO[].class);
 	}
 	
-	private ReviewDTO[] getReviews(ResultActions result) throws Exception {
+	private ReviewDTOResponse[] getReviews(ResultActions result) throws Exception {
 		String json = result.andReturn().getResponse().getContentAsString();
 		JsonNode node = objectMapper.readValue(json, ObjectNode.class).get("reviews");
-		return objectMapper.convertValue(node, ReviewDTO[].class);
+		return objectMapper.convertValue(node, ReviewDTOResponse[].class);
 	}
 	
 	private boolean orderedByTitle(MovieDTO[] movies) {
