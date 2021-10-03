@@ -15,7 +15,7 @@ public class Review implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String name;
+	private String text;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "movie_id")
@@ -27,9 +27,9 @@ public class Review implements Serializable {
 
 	public Review() {}
 
-	public Review(Long id, String name, Movie movie, User user) {
+	public Review(Long id, String text, Movie movie, User user) {
 		this.id = id;
-		this.name = name;
+		this.text = text;
 		this.movie = movie;
 		this.user = user;
 	}
@@ -42,13 +42,9 @@ public class Review implements Serializable {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
-	}
+	public String getText() {return text;}
 
-	public void setName(String name) {
-		this.name = name;
-	}
+	public void setText(String text) {this.text = text;}
 
 	public Movie getMovie() {
 		return movie;
@@ -92,7 +88,11 @@ public class Review implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Review [id=" + id + ", name=" + name + ", movies=" + movie + ", user=" + user + "]";
+		return "Review {" +
+				"id=" + id +
+				", text='" + text + '\'' +
+				", movie=" + movie +
+				", user=" + user +
+				'}';
 	}
-	
 }

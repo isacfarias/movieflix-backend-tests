@@ -27,3 +27,4 @@ INSERT INTO movie (title, sub_title, genre_id, year, img_url, synopsis) VALUES (
 INSERT INTO movie (title, sub_title, genre_id, year, img_url, synopsis) VALUES ('Dragon Fury','Dragon', 7, 2021, 'https://www.themoviedb.org/t/p/w533_and_h300_bestv2/tQpNgshSijrJ7TaY0P8JBWo7KJG.jpg','Uma equipe de especialistas viaja profundamente nas montanhas para encontrar uma criatura perigosa.');
 INSERT INTO movie (title, sub_title, genre_id, year, img_url, synopsis) VALUES ('Invasão Cósmica','Cosmic Sin', 8, 2021, 'https://www.themoviedb.org/t/p/w533_and_h300_bestv2/8T7z6eCcYFtNLtGdn8QdaJaFcnz.jpg','Sete soldados desonestos lançam um ataque preventivo contra uma civilização alienígena recém-descoberta na esperança de acabar com uma guerra interestelar antes de começar.');
 
+INSERT INTO review (user_id, movie_id, text) VALUES(2, 1, 'ahvaka que abra, é muita ameça pra pouco tempo');

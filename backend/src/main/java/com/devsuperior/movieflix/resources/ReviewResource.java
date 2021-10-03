@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import com.devsuperior.movieflix.dtos.ReviewDTOResponse;
 import com.devsuperior.movieflix.services.ReviewService;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "/review")
 public class ReviewResource {
@@ -23,7 +25,7 @@ public class ReviewResource {
 	}
 
 	@GetMapping("/{movieId}")
-	public ResponseEntity<ReviewDTOResponse> findByMovieId(@PathVariable Long movieId) {
+	public ResponseEntity<List<ReviewDTOResponse>> findByMovieId(@PathVariable Long movieId) {
 		return ResponseEntity.ok(service.findByMovieId(movieId));
 	}
 	

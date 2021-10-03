@@ -16,7 +16,7 @@ public class ReviewDTO {
 
 	public ReviewDTO(Review review) {
 		this.id = review.getId();
-		this.text = review.getName();
+		this.text = review.getText();
 		this.movieId = review.getMovie().getId();
 	}
 

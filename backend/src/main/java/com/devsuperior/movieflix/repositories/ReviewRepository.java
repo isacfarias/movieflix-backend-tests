@@ -5,8 +5,10 @@ import org.springframework.stereotype.Repository;
 
 import com.devsuperior.movieflix.entities.Review;
 
+import java.util.List;
+
 @Repository
 public interface ReviewRepository extends JpaRepository<Review, Long> {
 
-    Review findByMovieId(Long movieId);
+    List<Review> findByMovieId(Long movieId);
 }

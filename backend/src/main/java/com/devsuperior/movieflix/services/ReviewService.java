@@ -9,6 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class ReviewService {
 
@@ -24,15 +27,15 @@ public class ReviewService {
 	}
 
 	@Transactional(readOnly = true)
-	public ReviewDTOResponse findByMovieId(Long movieId) {
+	public List<ReviewDTOResponse> findByMovieId(Long movieId) {
 		var review = repository.findByMovieId(movieId);
-		return new ReviewDTOResponse(review);
+		return review.stream().map(ReviewDTOResponse::new).collect(Collectors.toList());
 	}
 
 	private Review toEntity(ReviewDTO dto) {
 		var movie = movieRepository.getOne(dto.getMovieId());
 		var review = new Review();
-		review.setName(dto.getText());
+		review.setText(dto.getText());
 		review.setMovie(movie);
 
 		return review;
