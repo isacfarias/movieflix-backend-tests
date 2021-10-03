@@ -8,10 +8,9 @@ public class ReviewDTOResponse {
 	
 	private Long id;
 	
-	@NotBlank(message = "A descrição da avaliação é obrigatória.")
 	private String text;
 	private MovieDTO movie;
-	private String userName;
+	private UserDTO user;
 
 	public ReviewDTOResponse() {}
 
@@ -19,7 +18,7 @@ public class ReviewDTOResponse {
 		this.id = review.getId();
 		this.text = review.getText();
 		this.movie = new MovieDTO(review.getMovie());
-		this.userName = review.getUser().getUsername();
+		this.user = new UserDTO(review.getUser());
 	}
 
 	public Long getId() {
@@ -44,6 +43,14 @@ public class ReviewDTOResponse {
 
 	public void setMovie(MovieDTO movie) {
 		this.movie = movie;
+	}
+
+	public UserDTO getUser() {
+		return user;
+	}
+
+	public void setUser(UserDTO user) {
+		this.user = user;
 	}
 
 	@Override
@@ -73,7 +80,11 @@ public class ReviewDTOResponse {
 
 	@Override
 	public String toString() {
-		return "ReviewDTO [id=" + id + ", name=" + text + ", movie=" + movie + ", userName=" + userName + "]";
+		return "ReviewDTOResponse{" +
+				"id=" + id +
+				", text='" + text + '\'' +
+				", movie=" + movie +
+				", user=" + user +
+				'}';
 	}
-
 }

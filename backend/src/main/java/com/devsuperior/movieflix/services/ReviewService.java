@@ -21,6 +21,9 @@ public class ReviewService {
 	@Autowired
 	private MovieRepository movieRepository;
 
+	@Autowired
+	private UserService userService;
+
 	@Transactional
 	public ReviewDTOResponse create(ReviewDTO dto) {
 		return new ReviewDTOResponse(repository.save(toEntity(dto)));
@@ -34,9 +37,11 @@ public class ReviewService {
 
 	private Review toEntity(ReviewDTO dto) {
 		var movie = movieRepository.getOne(dto.getMovieId());
+		var user = userService.authenticated();
 		var review = new Review();
 		review.setText(dto.getText());
 		review.setMovie(movie);
+		review.setUser(user);
 
 		return review;
 	}
